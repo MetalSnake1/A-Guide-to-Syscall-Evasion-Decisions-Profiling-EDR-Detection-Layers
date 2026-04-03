@@ -8,7 +8,7 @@ Of course, this matters because syscalls add complexity to your tooling, and the
 
 So, in this post I will walk you through a controlled experiment against OpenEDR v2.5.1, which will prove my point. I will be utilizing a custom hook scanner and syscall test harness. The goal here is to show you whether indirect syscalls are even worth using in the first place. I'd just like to make a quick note: even though in this experiment I used OpenEDR v2.5.1 this methodology should be applicable to any EDR solution. 
 
-**Also, check the releases tab for the two programs.
+**Also, check the releases tab for the two programs. (The source code is included.)
 
 ---
 
