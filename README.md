@@ -77,7 +77,6 @@ CreateProcessWithLogonW and ImpersonateNamedPipeClient.
 
 ExitProcess and FatalExit.
 
-[hook scanner full report screenshot here]
 
 Every hook uses the same pattern — a 5-byte E9 relative JMP overwriting the function prologue. Every hook destination resolves to an unknown module, meaning the trampolines land in an unbacked executable memory region. This is characteristic of MadcHook's injection framework, which OpenEDR uses to place hooks from its injected DLL (edrpm64.dll).
 
@@ -105,9 +104,8 @@ For NtReadVirtualMemory and NtWriteVirtualMemory, the test targets a remote proc
 
 All telemetry was monitored through OpenEDR's ELK pipeline (Filebeat shipping from the output_events directory to Elasticsearch/Kibana on a separate VM) and verified against the raw local telemetry log on the endpoint.
 
-[syscall harness menu screenshot here]
+<img width="1267" height="702" alt="sysmenu1" src="https://github.com/user-attachments/assets/8987819a-4436-4841-aa18-e21b6ed70d53" />
 
-[syscall harness running NtReadVirtualMemory screenshot here]
 
 ---
 
@@ -119,9 +117,6 @@ The only telemetry OpenEDR consistently produced throughout testing was process 
 
 This means the hooks didn't matter. A red teamer who scans this endpoint, sees 28 hooks, and deploys indirect syscalls has optimized against the wrong layer entirely.
 
-[Kibana showing process creation events but no syscall telemetry screenshot here]
-
-[raw local telemetry log showing no syscall events screenshot here]
 
 ---
 
